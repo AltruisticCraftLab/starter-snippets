@@ -2,6 +2,8 @@
 
 import { memo, useSyncExternalStore } from 'react';
 
+import { useTheme } from 'next-themes';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,10 +13,10 @@ import {
 import { cn } from '@/lib/utils';
 
 import { Button } from '../ui/button';
+
 import MoonIcon from './moon-icon';
 import SunIcon from './sun-icon';
 import SystemIcon from './system-icon';
-import { useTheme } from 'next-themes';
 
 // ========================================
 // CONSTANTS
