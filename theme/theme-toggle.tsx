@@ -105,7 +105,7 @@ const ThemeToggle = memo<ThemeToggleProps>(({ className }) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="border-border min-w-[150px] rounded border"
+        className="border-border min-w-37.5 rounded border"
         align="end"
         sideOffset={8}
       >
