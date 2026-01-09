@@ -32,16 +32,16 @@ const THEME_OPTIONS = [
 // TYPES
 // ========================================
 
-interface ThemeToggleProps {
+interface ThemeSelectorProps {
   className?: string;
 }
 
-// ---------------------- ThemeToggle Component ----------------------
+// ---------------------- ThemeSelector Component ----------------------
 /**
- * Theme toggle dropdown with automatic icon switching.
+ * Theme selector dropdown with automatic icon switching.
  * SSR-safe with smooth transitions and smart icon detection.
  */
-const ThemeToggle = memo<ThemeToggleProps>(({ className }) => {
+const ThemeSelector = memo<ThemeSelectorProps>(({ className }) => {
   // ========================================
   // STATE AND HOOKS
   // ========================================
@@ -131,6 +131,6 @@ const ThemeToggle = memo<ThemeToggleProps>(({ className }) => {
   );
 });
 
-ThemeToggle.displayName = 'ThemeToggle';
+ThemeSelector.displayName = 'ThemeSelector';
 
-export default ThemeToggle;
+export default ThemeSelector;
