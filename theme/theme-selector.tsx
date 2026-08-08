@@ -1,31 +1,31 @@
-'use client';
+"use client";
 
-import { memo, useSyncExternalStore } from 'react';
+import { memo, useSyncExternalStore } from "react";
 
-import { useTheme } from 'next-themes';
+import { useTheme } from "next-themes";
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
-import { Button } from '../ui/button';
+import { buttonVariants } from "../ui/button";
 
-import MoonIcon from './moon-icon';
-import SunIcon from './sun-icon';
-import SystemIcon from './system-icon';
+import MoonIcon from "./moon-icon";
+import SunIcon from "./sun-icon";
+import SystemIcon from "./system-icon";
 
 // ========================================
 // CONSTANTS
 // ========================================
 
 const THEME_OPTIONS = [
-  { value: 'light', label: 'Light', icon: SunIcon },
-  { value: 'dark', label: 'Dark', icon: MoonIcon },
-  { value: 'system', label: 'System', icon: SystemIcon },
+  { value: "light", label: "Light", icon: SunIcon },
+  { value: "dark", label: "Dark", icon: MoonIcon },
+  { value: "system", label: "System", icon: SystemIcon },
 ] as const;
 
 // ========================================
@@ -66,7 +66,7 @@ const ThemeSelector = memo<ThemeSelectorProps>(({ className }) => {
   if (!mounted) {
     return (
       <div
-        className={cn('flex h-9 w-9 items-center justify-center', className)}
+        className={cn("flex h-9 w-9 items-center justify-center", className)}
       >
         <div className="bg-secondary/50 dark:bg-secondary/50 h-5 w-5 animate-pulse rounded-full" />
       </div>
@@ -79,7 +79,7 @@ const ThemeSelector = memo<ThemeSelectorProps>(({ className }) => {
 
   // Determine if dark theme should be shown
   const isDark =
-    theme === 'system' ? resolvedTheme === 'dark' : theme === 'dark';
+    theme === "system" ? resolvedTheme === "dark" : theme === "dark";
 
   // ========================================
   // RENDER
@@ -87,22 +87,19 @@ const ThemeSelector = memo<ThemeSelectorProps>(({ className }) => {
 
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          aria-label="Change theme"
-          className={cn(
-            'hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors',
-            className
-          )}
-        >
-          {isDark ? (
-            <MoonIcon className="size-5" />
-          ) : (
-            <SunIcon className="size-5" />
-          )}
-        </Button>
+      <DropdownMenuTrigger
+        className={cn(
+          buttonVariants({ variant: "ghost", size: "icon" }),
+          "hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors",
+          className
+        )}
+        aria-label="Change theme"
+      >
+        {isDark ? (
+          <MoonIcon className="size-5" />
+        ) : (
+          <SunIcon className="size-5" />
+        )}
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="border-border min-w-37.5 rounded border"
@@ -115,11 +112,11 @@ const ThemeSelector = memo<ThemeSelectorProps>(({ className }) => {
             onClick={() => setTheme(value)}
             data-theme-selected={theme === value}
             className={cn(
-              'cursor-pointer px-3 py-2',
+              "cursor-pointer px-3 py-2",
               // Selected state
-              'data-[theme-selected=true]:bg-primary/30 data-[theme-selected=true]:hover:bg-primary/30 data-[theme-selected=true]:dark:bg-primary/45 data-[theme-selected=true]:dark:hover:bg-primary/45 data-[theme-selected=true]:font-bold',
+              "data-[theme-selected=true]:bg-primary/30 data-[theme-selected=true]:hover:bg-primary/30 data-[theme-selected=true]:dark:bg-primary/45 data-[theme-selected=true]:dark:hover:bg-primary/45 data-[theme-selected=true]:font-bold",
               // Non-selected state
-              'data-[theme-selected=false]:hover:bg-primary/15 data-[theme-selected=false]:dark:hover:bg-primary/20 data-[theme-selected=false]:focus:bg-primary/15'
+              "data-[theme-selected=false]:hover:bg-primary/15 data-[theme-selected=false]:dark:hover:bg-primary/20 data-[theme-selected=false]:focus:bg-primary/15"
             )}
           >
             <Icon aria-hidden="true" />
@@ -131,6 +128,6 @@ const ThemeSelector = memo<ThemeSelectorProps>(({ className }) => {
   );
 });
 
-ThemeSelector.displayName = 'ThemeSelector';
+ThemeSelector.displayName = "ThemeSelector";
 
 export default ThemeSelector;
