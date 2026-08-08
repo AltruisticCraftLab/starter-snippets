@@ -89,8 +89,8 @@ const ThemeSelector = memo<ThemeSelectorProps>(({ className }) => {
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger
         className={cn(
-          buttonVariants({ variant: "ghost", size: "icon" }),
-          "hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors",
+          buttonVariants({ variant: "ghostPrimary", size: "icon" }),
+          "transition-colors",
           className
         )}
         aria-label="Change theme"
